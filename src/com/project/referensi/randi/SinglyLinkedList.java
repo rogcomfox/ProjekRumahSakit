@@ -9,13 +9,13 @@ package com.project.referensi.randi;
  */
 public class SinglyLinkedList {
 
-    Node head, tail;
+    Node head = null, tail = null;
     private int sizeMax = 0;
     private int size = 0;
     private int antreTerisi = 0;
 
     public SinglyLinkedList() {
-        head = tail = null;
+
     }
 
     public void setSizeMax(int sizeMax) {
