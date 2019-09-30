@@ -1,12 +1,8 @@
 package com.project.referensi.randi;
-/**
- *
- * @author 
- *  // 185150200111069 - AHYA ZHILALIKBAR AMIN //
-    // 185150200111071 - MUHAMMAD HAMAAS TAQIYUDDIN AL MUSTADJABI //
-    // 185150200111073 - MUHAMMAD NAUFAL HABIBIE DWIHAR //
-    // 185150207111001 - RANDI JULIUS ONG //
- */
+// 185150201111013 - YUSUF GLADIENSYAH BIHANDA
+// 185150200111026 - JOSEPH ANANDA SUGIHDHARMA
+// 185150207111012 - MUHAMMAD NAJMI FAISAL
+
 public class SinglyLinkedList {
 
     Node head = null, tail = null;
@@ -61,58 +57,6 @@ public class SinglyLinkedList {
         size++;
     }
 
-//    public void cetak() {
-//        Node pointer = head;
-//        if (head == null) {
-//            System.out.print(" - \n");
-//        } else {
-//            while (pointer.next != null) {
-//                System.out.print(pointer.data + " ");
-//                pointer = pointer.next;
-//            }
-//            System.out.println(tail.data);
-//        }
-//
-//    }
-
-    public String getDataNodeN(int n) {
-//        list indexing start dari 1
-        Node tmp = head;
-        String data;
-        if (size == 1) {
-            return tmp.data;
-        } else {
-            for (int i = 0; i < n - 1; i++) {
-                tmp = tmp.next;
-            }
-            return tmp.data;
-        }
-    }
-
-    public void antreIsiBertambah() {
-        antreTerisi++;
-    }
-
-    public void antreIsiBerkurang() {
-        antreTerisi--;
-    }
-
-    public int getAntreTerisi() {
-        return antreTerisi;
-    }
-
-    public void setAntreTerisi(int antreTerisi) {
-        this.antreTerisi = antreTerisi;
-    }
-
-    public Node getHead() {
-        return head;
-    }
-
-    public void removeFirst() {
-        head = head.next;
-        size--;
-    }
 public void cetak() {
         Node pointer = head;
         RAntre antri = new RAntre();
@@ -145,7 +89,7 @@ public void cetak() {
                     break;
                 case "SKIP":
                     antri.pindah(Integer.parseInt(word[1]));
-                    System.out.println("SKIP SUSKSES");
+                    System.out.println("SKIP SUKSES");
                     break;
                 default:
                     antri.setBatas(Integer.parseInt(word[0]));
