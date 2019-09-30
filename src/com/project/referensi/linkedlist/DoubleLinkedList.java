@@ -24,11 +24,9 @@ public class DoubleLinkedList {
 		node.setPrev(null);
 		head = node;
 		tail = node;
-		size=1;// size =1
+		size = 1;// size =1
 		return head;
 	}
-	
-	
 	
 	void insertInLinkedList(int nodeValue, int location) {
 		DoubleNode node = new DoubleNode();

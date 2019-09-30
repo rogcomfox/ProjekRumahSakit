@@ -3,8 +3,8 @@ package com.project.referensi.node;
 public  class SingleNode {
 	private int value;
 	private SingleNode next;
-	
-public int getValue() {
+
+	public int getValue() {
 		return value;
 	}
 
