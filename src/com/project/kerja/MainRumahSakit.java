@@ -133,7 +133,6 @@ class Antrian{
 }
 
 class Tunggu{
-
 }
 
 public class MainRumahSakit {

@@ -38,7 +38,7 @@ public class MainQueue {
     public static void main(String[] args) throws IOException {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
         int t=Integer.parseInt(in.readLine());
-        SingleLinkedList li = new SingleLinkedList();
+        SingleLinkedList sll = new SingleLinkedList();
         RuangAntri antri = new RuangAntri();
         RuangTunggu tunggu = new RuangTunggu();
 
