@@ -39,20 +39,20 @@ public class RuangTunggu {
             head = tail = node;
             ukuran++;
         }else{
-            tail.setNext(node);
+            tail.next = node;
             node.setPrev(tail);
             ukuran++;
         }
     }
-//    public void cetak(){
-//        Node temp = head;
-//        while(temp!= null){
-//            System.out.print(" "+temp.data);
-//            temp=temp.next;
-//        }
-//        if (head==null) {
-//            System.out.print(" -");
-//        }
-//        System.out.println("");
-//    }
+    public void cetak(){
+        Node temp = head;
+        while(temp!= null){
+            System.out.print(" "+temp.isi);
+            temp=temp.next;
+        }
+        if (head==null) {
+            System.out.print(" -");
+        }
+        System.out.println(" ");
+    }
 }

@@ -51,7 +51,7 @@ public class SinglyLinkedList {
         Node pointer = head;
         RAntre antri = new RAntre();
         DTunggu ruang = new DTunggu();
-        while (pointer.next != null) {
+        do {
             String s = pointer.data;
             String word[] = s.split(" ");
             switch (word[0]) {
@@ -86,7 +86,7 @@ public class SinglyLinkedList {
                     break;
             }
             pointer = pointer.next;
-        }
+        }while (pointer.next != null) ;
         System.out.println(tail.data);
     }
 }
