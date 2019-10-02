@@ -47,10 +47,7 @@ public class QueueByLinkedList {
 
 	
 	public boolean isQueueEmpty() {
-		if (list.getHead() == null)
-			return true;
-		else
-			return false;
+		return list.getHead() == null;
 	}//end of method
 	
 	

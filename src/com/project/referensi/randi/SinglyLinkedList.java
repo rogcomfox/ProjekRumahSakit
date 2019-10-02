@@ -6,20 +6,10 @@ package com.project.referensi.randi;
 public class SinglyLinkedList {
 
     Node head = null, tail = null;
-    private int sizeMax = 0;
     private int size = 0;
-    private int antreTerisi = 0;
 
     public SinglyLinkedList() {
 
-    }
-
-    public void setSizeMax(int sizeMax) {
-        this.sizeMax = sizeMax;
-    }
-
-    public int getSizeMax() {
-        return sizeMax;
     }
 
     public int getSize() {
@@ -57,7 +47,7 @@ public class SinglyLinkedList {
         size++;
     }
 
-public void cetak() {
+    public void cetak() {
         Node pointer = head;
         RAntre antri = new RAntre();
         DTunggu ruang = new DTunggu();
