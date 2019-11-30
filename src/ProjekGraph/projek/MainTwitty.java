@@ -17,8 +17,10 @@ public class MainTwitty {
                arr[0] = arr[0].toLowerCase();
                switch (arr[0]){
                    case "insert":
+                       tw.addAdj(arr[1]);
                        break;
                    case "connect":
+                       tw.connect(arr[1], arr[2]);
                        break;
                    case "mostfollowed":
                        break;
@@ -35,5 +37,6 @@ public class MainTwitty {
            }
        }
        in.close();
+       tw.printToTail();
     }
 }
