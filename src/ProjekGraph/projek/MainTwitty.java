@@ -16,8 +16,8 @@ class Main{
     public static void main(String[] args) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         MainTwitty mt = new MainTwitty();
-        int U = 0;
-        int C = 0;
+        int U;
+        int C;
         U = Integer.parseInt(in.readLine());
         C = Integer.parseInt(in.readLine());
         String [][] adjency = new String[U][4];
