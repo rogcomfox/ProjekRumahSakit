@@ -22,13 +22,12 @@ public class RuangAntre {
         if (itemCount != size) {
             if (front == null) {
                 front = rear = temp;
-                itemCount++;
             } else {
                 temp.next = null;
                 temp.prev = rear;
                 rear.next = rear = temp;
-                itemCount++;
             }
+            itemCount++;
             return ("ANTRE " + nama);
         } else {
             waitQueue.enqueue(nama);
@@ -40,18 +39,13 @@ public class RuangAntre {
         String popNama = front.nama;
         if (front == rear) {
             front = rear = null;
-            itemCount--;
-            if (!waitQueue.isEmpty()) {
-                enqueue(waitQueue.dequeue());
-                itemCount++;
-            }
         } else {
             front = front.next;
-            itemCount--;
-            if (!waitQueue.isEmpty()) {
-                enqueue(waitQueue.dequeue());
-                itemCount++;
-            }
+        }
+        itemCount--;
+        if (!waitQueue.isEmpty()) {
+            enqueue(waitQueue.dequeue());
+            itemCount++;
         }
         itemCount--;
         return "SELESAI " + popNama;
@@ -111,25 +105,25 @@ public class RuangAntre {
 
     public String printStatus() {
         Node temp = front;
-        String antre = "LIST_ANTRE ";
+        StringBuilder antre = new StringBuilder("LIST_ANTRE ");
 
         do {
-            antre += (temp.nama + " ");
+            antre.append(temp.nama).append(" ");
             temp = temp.next;
         } while (temp != null);
-        antre += "\nLIST_WAIT ";
+        antre.append("\nLIST_WAIT ");
 
         if (waitQueue.isEmpty()) {
-            antre += "-";
+            antre.append("-");
         } else {
-            antre += waitQueue.returnToTail();
+            antre.append(waitQueue.returnToTail());
         }
-        return antre;
+        return antre.toString();
 
     }
 
     public boolean isEmpty() {
-        return front == null ? true : false;
+        return front == null;
     }
 
     public int getSize() {

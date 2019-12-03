@@ -1,27 +1,5 @@
 package ProjekGraph.projek;
 
-import java.util.Vector;
-
-class Node {
-    String data;
-    Node next, prev;
-
-    public Node(){
-    }
-
-    public Node(String dt, Node n) {
-        data = dt;
-        next = n;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public Node getNext() {
-        return next;
-    }
-}
 
 public class Twitty {
     private Node front, rear;
@@ -32,7 +10,7 @@ public class Twitty {
     }
 
     public boolean isEmpty() {
-        return front == null ? true : false;
+        return front == null;
     }
 
     public void addAdj(String adj){
