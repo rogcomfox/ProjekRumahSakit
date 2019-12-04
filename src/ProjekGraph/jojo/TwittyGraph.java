@@ -36,11 +36,6 @@ public class TwittyGraph {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-    }
-
     public void addUser(String user, String minat1, String minat2, String minat3) {
         vertexList[nVerts++] = new Vertex(user, minat1, minat2, minat3);
     }
@@ -107,6 +102,7 @@ public class TwittyGraph {
                 }
             }
         }
+        System.out.println(String.join(", ", mostfollowed));
     }
 
     public void displayVertex() {
