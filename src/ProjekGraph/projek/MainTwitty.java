@@ -71,6 +71,20 @@ class Main {
                     }
                     break;
                 case "MOSTFOLLOWED":
+                    /*
+                    int[] freq = new int[adjacency.length];
+                    for(int i=0; i<adjacency.length; i++){
+                        freq[i] = 1;
+                        for(int j = i+1; j<adjacency.length; j++){
+                            if(adjacency[i][0] == adjacency[j][0]){
+                                freq[i]++;
+                            }
+                        }
+                    }
+                    for(int i=0; i<freq.length; i++){
+                        System.out.println(adjacency[i][0]+" - " + freq[i]);
+                    }
+                    */
                     break;
                 case "MINRT":
                     break;
