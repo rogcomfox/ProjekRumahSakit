@@ -1,5 +1,4 @@
 package ProjekGraph.jojo;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,11 +41,13 @@ public class MainTwitty {
                     tg.mostfollowed();
                     break;
                 case "minrt":
+                    tg.minrt();
                     break;
                 case "numgroup":
+                    tg.numgroup();
                     break;
                 case "grouptopic":
-                    //tg.grouptopic();
+                    tg.grouptopic();
                     break;
             }
             if (input.equals("")) {

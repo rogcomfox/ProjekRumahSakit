@@ -1,5 +1,4 @@
 package ProjekGraph.jojo;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +8,6 @@ class Vertex {
     String user;
     String minat[] = new String[3];
     int followed;
-    boolean wasVisited;
 
     public Vertex(String user, String minat1, String minat2, String minat3) {
         this.user = user;
@@ -20,10 +18,14 @@ class Vertex {
 }
 
 public class TwittyGraph {
-    private final int MAX_VERTS = 100;
+    private final int MAX_VERTS = 25;
     private Vertex vertexList[];
     private int adjMat[][];
     private int nVerts;
+    String[][] group = new String[][]{};
+    private int connect;
+    private int groups;
+    private int alone;
 
     public TwittyGraph() {
         vertexList = new Vertex[MAX_VERTS];
@@ -38,11 +40,13 @@ public class TwittyGraph {
 
     public void addUser(String user, String minat1, String minat2, String minat3) {
         vertexList[nVerts++] = new Vertex(user, minat1, minat2, minat3);
+        alone++;
     }
 
     public void addUser2(String user, String minat1, String minat2, String minat3) {
         vertexList[nVerts++] = new Vertex(user, minat1, minat2, minat3);
         System.out.println(user + " inserted");
+        alone++;
     }
 
     public void addConnect(String following, String followed) {
@@ -58,6 +62,8 @@ public class TwittyGraph {
         }
         adjMat[user1][user2] = 1;
         vertexList[user2].followed++;
+        connect++;
+        grouping(following, followed);
     }
 
     public void addConnect2(String following, String followed) {
@@ -74,45 +80,85 @@ public class TwittyGraph {
         adjMat[user1][user2] = 1;
         vertexList[user2].followed++;
         System.out.println("connect " + following + " " + followed + " success");
+        connect++;
+        grouping(following, followed);
     }
 
     public void mostfollowed() {
         Vertex comparator = vertexList[0];
         String[] mostfollowed = new String[]{};
         for (int i = 1; i < nVerts; i++) {
-            if (vertexList[i].followed > comparator.followed) {
-                mostfollowed = new String[1];
-                mostfollowed[0] = vertexList[i].user;
-                comparator = vertexList[i];
-            }
             if (vertexList[i].followed == comparator.followed) {
                 String[] temporary = mostfollowed;
                 mostfollowed = new String[temporary.length + 1];
                 System.arraycopy(temporary, 0, mostfollowed, 0, temporary.length);
                 mostfollowed[mostfollowed.length - 1] = vertexList[i].user;
                 //Sorting
-                for (int k = 0; k < mostfollowed.length; i++) {
+                for (int k = 0; k < mostfollowed.length; k++) {
                     for (int l = k + 1; l < mostfollowed.length; l++) {
                         if (mostfollowed[k].compareTo(mostfollowed[l]) > 0) {
                             String temporary1 = mostfollowed[k];
                             mostfollowed[k] = mostfollowed[l];
                             mostfollowed[l] = temporary1;
                         }
+                        System.out.println(mostfollowed);
                     }
                 }
+            }
+            if (vertexList[i].followed > comparator.followed) {
+                mostfollowed = new String[1];
+                mostfollowed[0] = vertexList[i].user;
+                comparator = vertexList[i];
             }
         }
         System.out.println(String.join(", ", mostfollowed));
     }
 
-    public void displayVertex() {
-        for (int i = 0; i < nVerts; i++) {
-            System.out.println(vertexList[i].user);
-            for (String minat : vertexList[i].minat) {
-                System.out.print(" " + minat);
+    public void minrt() {
+
+    }
+
+    public void grouping(String user1, String user2) {
+        alone-=2;
+        String[][] temp = group;
+        group = new String[groups+1][nVerts];
+        System.arraycopy(temp, 0, group, 0, temp.length);
+        if (group[0][0] == "") {
+            group[0][0] = user1;
+            group[0][1] = user2;
+        } else {
+            alone++;
+            for (int i = 0; i < groups; i++) {
+                for(int j=0; j < nVerts; j++) {
+                    if (group[i][j].equals(user1) || group[i][j].equals(user2)) {
+                        if (group[i][j].equals(user1)) {
+                            group[i][group[i].length - 1] = user2;
+                            break;
+                        } else {
+                            group[i][group[i].length - 1] = user1;
+                            break;
+                        }
+                    }
+                }
+            }
+            groups++;
+            group[groups-1][0] = user1;
+            group[groups-1][1] = user2;
+        }
+        for(int k=0; k<group.length; k++){
+            for(int l=0; l<group[k].length; l++){
+                System.out.println(group[k][l]);
+                System.out.println(k);
+                System.out.println(l);
             }
         }
     }
 
+    public void numgroup() {
+        System.out.println(group.length + alone);
+    }
 
+    public void grouptopic() {
+
+    }
 }
