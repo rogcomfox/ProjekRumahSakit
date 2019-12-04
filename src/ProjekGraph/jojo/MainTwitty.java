@@ -1,7 +1,8 @@
 package ProjekGraph.jojo;
+
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+
 public class MainTwitty {
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -41,7 +42,7 @@ public class MainTwitty {
                     tg.mostfollowed();
                     break;
                 case "minrt":
-                    tg.minrt();
+                    tg.minrt(arr[1], arr[2]);
                     break;
                 case "numgroup":
                     tg.numgroup();
