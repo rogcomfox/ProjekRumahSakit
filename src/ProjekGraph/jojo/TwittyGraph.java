@@ -1,11 +1,14 @@
 package ProjekGraph.jojo;
+//Joseph Ananda Sugihdharma (185150200111026)
+//Yusuf Gladiensyah Bihanda (185150201111013)
+//Muhammad Najmi Faisal (185150207111012)
 
 class Vertex {
 
     String user;
     String[] minat = new String[3];
     int followed;
-
+    //Parameter yang dibutuhkan setiap vertex
     public Vertex(String user, String minat1, String minat2, String minat3) {
         this.user = user;
         minat[0] = minat1;
@@ -23,6 +26,7 @@ public class TwittyGraph {
     private int groups;
     private int alone;
 
+    //Membuat adjacency matriks
     public TwittyGraph() {
         int MAX_VERTS = 25;
         vertexList = new Vertex[MAX_VERTS];
@@ -35,6 +39,7 @@ public class TwittyGraph {
         }
     }
 
+    //Menambahkan user baru (inisialisasi awal)
     public void addUser(String user, String minat1, String minat2, String minat3) throws Exception {
         try {
             vertexList[nVerts++] = new Vertex(user, minat1, minat2, minat3);
@@ -44,6 +49,7 @@ public class TwittyGraph {
         }
     }
 
+    //Menambahkan user baru (tambahan melalui switch case) + mencetak status ketika berhasil ditambahkan
     public void addUser2(String user, String minat1, String minat2, String minat3) throws Exception{
         try {
             vertexList[nVerts++] = new Vertex(user, minat1, minat2, minat3);
@@ -54,6 +60,7 @@ public class TwittyGraph {
         }
     }
 
+    //Menambahkan koneksi baru antar user (inisialisasi awal)
     public void addConnect(String following, String followed) throws Exception{
         try {
             int user1 = -1;
@@ -75,6 +82,7 @@ public class TwittyGraph {
         }
     }
 
+    //Menambahkan koneksi baru antar user(tambahan melalui switch case) + mencetak status ketika berhasil ditambahkan
     public void addConnect2(String following, String followed) throws Exception{
         try {
             int user1 = -1;
@@ -97,6 +105,7 @@ public class TwittyGraph {
         }
     }
 
+    //Mengetahui user yang difollow paling banyak
     public void mostfollowed() throws Exception{
         try {
             Vertex comparator = vertexList[0];
@@ -131,6 +140,7 @@ public class TwittyGraph {
         }
     }
 
+    //Mengetahui minimum retweet
     public void minrt(String user1, String user2) throws Exception {
         try{
 
@@ -139,6 +149,7 @@ public class TwittyGraph {
         }
     }
 
+    //Mengetahui jumlah circle/group
     public void grouping(String user1, String user2) throws Exception {
         try{
 
@@ -180,6 +191,7 @@ public class TwittyGraph {
         }
     }
 
+    //Pemanggilan hasil dari method grouping untuk mengetahui jumlah circle
     public void numgroup() throws Exception{
         try {
             System.out.println(group.length + alone);
@@ -188,6 +200,7 @@ public class TwittyGraph {
         }
     }
 
+    //Mengetahui jumlah topic dari masing masing group
     public void grouptopic() throws Exception{
         try {
             String[] arr1 = new String[5];
